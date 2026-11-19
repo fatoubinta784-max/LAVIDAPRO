@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b4db8">
+  <title>Mes favoris | Medinati</title>
+  <link rel="icon" href="medinati-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="app-page">
+  <header class="app-topbar">
+    <a class="app-brand" href="home.html"><img src="medinati-logo.svg" alt="" class="brand-symbol brand-symbol-small"><strong>Medinati</strong></a>
+    <nav aria-label="Navigation principale">
+      <a href="home.html">Accueil</a>
+      <a href="recherche.html">Explorer</a>
+      <a href="nouvelle.html">Publications</a>
+      <a href="account.html">Mon compte</a>
+    </nav>
+  </header>
+
+  <main class="collection-wrap">
+    <a href="account.html" class="detail-back">← Mon compte</a>
+    <p class="auth-kicker">VOTRE SÉLECTION</p>
+    <h1>Mes favoris</h1>
+    <p class="collection-intro">Les annonces que vous avez enregistrées. <span id="savedCount"></span></p>
+    <div id="savedList" class="collection-list" aria-live="polite"></div>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="js/favoris.js"></script>
+</body>
+</html>

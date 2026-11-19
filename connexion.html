@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b4db8">
+  <meta name="description" content="Connectez-vous à Medinati pour retrouver les annonces et services de votre quartier.">
+  <title>Connexion | Medinati</title>
+  <link rel="icon" href="medinati-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <a class="auth-brand" href="home.html"><img src="medinati-logo.svg" alt="" class="brand-symbol brand-symbol-small"><span>Medinati<small>La vie locale, en mieux</small></span></a>
+    <section class="auth-card">
+      <p class="auth-kicker">HEUREUX DE VOUS REVOIR</p>
+      <h1>Connectez-vous</h1>
+      <p class="auth-intro">Retrouvez les services, annonces et opportunités de votre quartier.</p>
+      <form id="loginForm" novalidate>
+        <label for="loginEmail">Adresse e-mail</label>
+        <input id="loginEmail" name="email" type="email" autocomplete="email" placeholder="vous@exemple.com" required>
+        <label for="loginPassword">Mot de passe</label>
+        <div class="password-field">
+          <input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="Votre mot de passe" required>
+          <button type="button" class="password-toggle" data-toggle-password="loginPassword" aria-pressed="false">Afficher</button>
+        </div>
+        <p id="loginMessage" class="auth-message" role="status" aria-live="polite"></p>
+        <button class="auth-submit" type="submit">Se connecter <span aria-hidden="true">→</span></button>
+        <a id="alreadyConnected" class="auth-continue" href="home.html" hidden>Continuer vers Medinati →</a>
+      </form>
+      <p class="auth-switch">Nouveau sur Medinati ? <a href="inscription.html">Créer un compte</a></p>
+    </section>
+    <a href="home.html" class="auth-back">← Retour à l’accueil</a>
+  </main>
+  <script src="app.js"></script>
+  <script src="js/connexion.js"></script>
+</body>
+</html>

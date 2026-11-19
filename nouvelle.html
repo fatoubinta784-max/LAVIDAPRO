@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b4db8">
+    <meta name="description" content="Les annonces, services et opportunités publiés par les habitants de votre quartier.">
+    <title>Publications | Medinati</title>
+
+    <link rel="icon" href="medinati-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= EN-TÊTE ================= -->
+
+<header class="top-header">
+
+    <a class="brand" href="home.html">
+        <img src="medinati-logo.svg" alt="" class="brand-symbol brand-symbol-small">
+        <span>Medinati</span>
+    </a>
+
+    <div class="header-actions">
+
+        <button type="button" class="header-btn" id="searchPublication" aria-label="Rechercher une publication">🔎</button>
+
+        <a class="header-btn notification" href="notifications.html" aria-label="Notifications">
+            <span aria-hidden="true">🔔</span>
+            <span class="notification-count" data-badge="notifications" hidden></span>
+        </a>
+
+        <a class="profile-mini" href="account.html" aria-label="Mon compte">
+            <span data-user-initials>M</span>
+        </a>
+
+    </div>
+
+</header>
+
+
+<div class="page-layout">
+
+<!-- ================= BARRE LATÉRALE ================= -->
+
+<aside class="sidebar">
+
+    <div class="user-card">
+        <div class="avatar large" aria-hidden="true"><span data-user-initials>M</span></div>
+        <div>
+            <strong id="sidebarName">Bienvenue</strong>
+            <small id="sidebarPlace">Votre quartier</small>
+        </div>
+    </div>
+
+    <nav class="side-menu" aria-label="Menu des publications">
+        <a href="home.html">🏠 <span>Accueil</span></a>
+        <a class="active" href="nouvelle.html" aria-current="page">📰 <span>Publications</span></a>
+        <a href="recherche.html?categorie=emploi">💼 <span>Offres d’emploi</span></a>
+        <a href="recherche.html?categorie=marketplace">🛍️ <span>Marketplace</span></a>
+        <a href="recherche.html?categorie=services">🔧 <span>Services</span></a>
+        <a href="messages.html">💬 <span>Mes demandes de contact</span> <b data-badge="messages" hidden></b></a>
+        <a href="favoris.html">❤️ <span>Mes favoris</span> <b data-badge="saved" hidden></b></a>
+        <a href="account.html">👤 <span>Mon profil</span></a>
+    </nav>
+
+    <div class="location-card">
+        <span aria-hidden="true">📍</span>
+        <div>
+            <small>Ma localisation</small>
+            <strong id="locationCity">Votre ville</strong>
+            <p id="locationDistrict">Votre quartier</p>
+        </div>
+        <a id="changeLocation" href="account.html#localisation">Modifier</a>
+    </div>
+
+</aside>
+
+
+<!-- ================= CONTENU ================= -->
+
+<main class="main-content">
+
+    <section class="page-title">
+        <div>
+            <h1>Publications</h1>
+            <p>Découvrez les opportunités, services, offres et annonces près de vous.</p>
+        </div>
+        <button type="button" class="publish-main" id="openPublish"><span aria-hidden="true">＋</span> Publier</button>
+    </section>
+
+
+    <!-- RECHERCHE -->
+    <div class="publication-search" role="search">
+        <span aria-hidden="true">🔎</span>
+        <input type="search" id="publicationSearchInput" placeholder="Rechercher une publication…" aria-label="Rechercher une publication">
+    </div>
+
+
+    <!-- FILTRES -->
+    <div class="feed-tabs" role="group" aria-label="Filtrer les publications">
+        <button type="button" class="tab active" data-filter="all" aria-pressed="true">Pour vous</button>
+        <button type="button" class="tab" data-filter="nearby" aria-pressed="false">📍 Près de moi</button>
+        <button type="button" class="tab" data-filter="mine" data-tab-mine aria-pressed="false" hidden>✍️ Mes publications</button>
+        <button type="button" class="tab" data-filter="emploi" aria-pressed="false">💼 Emploi</button>
+        <button type="button" class="tab" data-filter="service" aria-pressed="false">🔧 Services</button>
+        <button type="button" class="tab" data-filter="vente" aria-pressed="false">🛍️ Vente</button>
+        <button type="button" class="tab" data-filter="immobilier" aria-pressed="false">🏠 Immobilier</button>
+        <button type="button" class="tab" data-filter="evenement" aria-pressed="false">🎉 Événements</button>
+    </div>
+
+
+    <!-- PUBLICATION RAPIDE -->
+    <section class="quick-publish">
+        <div class="avatar" aria-hidden="true"><span data-user-initials>M</span></div>
+        <button type="button" id="quickPublish">Que souhaitez-vous publier ?</button>
+        <div class="quick-actions">
+            <button type="button">📷 Photo</button>
+            <button type="button" data-type="emploi">💼 Emploi</button>
+            <button type="button" data-type="service">🔧 Service</button>
+            <button type="button" data-type="vente">🛍️ Vente</button>
+        </div>
+    </section>
+
+
+    <!-- FIL -->
+    <section id="publicationFeed" class="publication-feed" aria-live="polite"></section>
+
+</main>
+
+</div>
+
+
+<!-- FENÊTRE : CHOIX DU TYPE DE PUBLICATION -->
+<div class="modal hidden" id="publishModal" aria-hidden="true">
+    <div class="modal-box publish-modal" role="dialog" aria-modal="true" aria-labelledby="publishTitle">
+        <button type="button" class="close" data-close-modal aria-label="Fermer">×</button>
+        <h2 id="publishTitle">Créer une publication</h2>
+        <p class="modal-subtitle">Que souhaitez-vous proposer ou partager ? Vous pourrez ajouter une photo.</p>
+        <div class="publication-types" id="publicationTypes"></div>
+    </div>
+</div>
+
+
+<!-- FENÊTRE : FORMULAIRE DE PUBLICATION -->
+<div class="modal hidden" id="formModal" aria-hidden="true">
+    <div class="modal-box publish-form-box" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+        <button type="button" class="close" data-close-modal aria-label="Fermer">×</button>
+        <div id="formContent"></div>
+    </div>
+</div>
+
+
+<!-- FENÊTRE : ACTION SUR UNE PUBLICATION -->
+<div class="modal hidden" id="actionModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="actionTitle">
+        <button type="button" class="close" data-close-modal aria-label="Fermer">×</button>
+        <div id="actionContent"></div>
+    </div>
+</div>
+
+
+<!-- MENU DU BAS -->
+<nav class="bottom-nav" aria-label="Navigation principale">
+    <a href="home.html" class="nav-item"><span aria-hidden="true">🏠</span><small>Accueil</small></a>
+    <a href="recherche.html" class="nav-item"><span aria-hidden="true">🔍</span><small>Recherche</small></a>
+    <a href="nouvelle.html?publier=1" class="nav-item nav-publish"><span aria-hidden="true">＋</span><small>Publier</small></a>
+    <a href="nouvelle.html" class="nav-item active" aria-current="page"><span aria-hidden="true">📰</span><small>Publications</small></a>
+    <a href="account.html" class="nav-item"><span aria-hidden="true">👤</span><small>Compte</small></a>
+</nav>
+
+<script src="app.js"></script>
+<script src="js/publications.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b4db8">
+  <title>Annonce | Medinati</title>
+  <link rel="icon" href="medinati-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="app-page">
+  <header class="app-topbar">
+    <a class="app-brand" href="home.html"><img src="medinati-logo.svg" alt="" class="brand-symbol brand-symbol-small"><strong>Medinati</strong></a>
+    <nav aria-label="Navigation principale">
+      <a href="recherche.html">Recherche</a>
+      <a href="nouvelle.html">Publications</a>
+      <a href="favoris.html">Favoris <span class="nav-badge" data-badge="saved" hidden></span></a>
+      <a href="account.html">Mon compte</a>
+    </nav>
+  </header>
+
+  <main class="detail-wrap">
+    <a href="recherche.html" class="detail-back" id="detailBack">← Retour</a>
+
+    <article class="detail-card" id="detailCard" hidden>
+      <img class="detail-photo" id="detailPhoto" alt="" hidden>
+      <div class="detail-head">
+        <div class="detail-icon" id="detailIcon" aria-hidden="true"></div>
+        <div>
+          <p class="detail-category" id="detailCategory"></p>
+          <h1 id="detailTitle"></h1>
+        </div>
+      </div>
+      <p class="detail-meta" id="detailMeta"></p>
+      <p class="detail-description" id="detailDescription"></p>
+      <div class="detail-chips" id="detailChips" hidden></div>
+      <div class="detail-location" id="detailLocation"></div>
+
+      <p class="detail-owner" id="ownerNote" hidden>✦ C’est votre annonce.</p>
+
+      <div class="detail-actions">
+        <button type="button" id="contactListing" class="detail-contact">Contacter</button>
+        <button type="button" id="saveListing" class="detail-save" aria-pressed="false">♡ Enregistrer</button>
+        <button type="button" id="shareListing" class="detail-save">↗ Partager</button>
+        <button type="button" id="deleteListing" class="detail-delete" hidden>Supprimer l’annonce</button>
+      </div>
+
+      <form id="contactForm" class="detail-contact-form" hidden>
+        <label for="contactText">Votre message</label>
+        <textarea id="contactText" rows="4" maxlength="600"></textarea>
+        <div class="detail-form-actions">
+          <button type="button" id="cancelContact" class="detail-save">Annuler</button>
+          <button type="submit" class="detail-contact">Enregistrer la demande</button>
+        </div>
+        <p class="detail-hint">Votre demande est gardée sur cet appareil, dans « Mes demandes ». L’envoi au membre arrivera avec la version en ligne de Medinati.</p>
+      </form>
+
+      <p id="detailMessage" class="detail-message" role="status" aria-live="polite"></p>
+    </article>
+
+    <section class="detail-card detail-empty" id="detailEmpty" hidden>
+      <div class="detail-icon" aria-hidden="true">⌕</div>
+      <h1>Annonce introuvable</h1>
+      <p>Cette annonce n’existe plus ou a été supprimée. Découvrez les autres annonces de votre quartier.</p>
+      <a class="detail-contact" href="recherche.html">Explorer les annonces</a>
+    </section>
+
+    <section class="detail-related" id="detailRelated" hidden>
+      <h2>Dans la même catégorie</h2>
+      <div class="collection-list" id="relatedList"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="js/annonce.js"></script>
+</body>
+</html>

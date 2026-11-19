@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b4db8">
+    <meta name="description" content="Créez votre compte Medinati pour découvrir les services et opportunités de votre quartier.">
+    <title>Créer un compte | Medinati</title>
+
+    <link rel="icon" href="medinati-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="page">
+
+        <section class="register-card">
+
+            <!-- LOGO -->
+            <a class="logo-container" href="home.html" aria-label="Retour à l’accueil Medinati">
+                <img src="medinati-logo.svg" alt="" class="brand-symbol brand-symbol-large">
+            </a>
+
+            <!-- TITRE -->
+            <div class="heading">
+                <h1>Créer votre compte</h1>
+                <p>
+                    Rejoignez Medinati et découvrez les services
+                    disponibles autour de vous.
+                </p>
+            </div>
+
+            <div class="form-notice" id="existingAccount" hidden>
+                Un compte (<strong data-existing-email></strong>) existe déjà sur cet appareil.
+                <a href="connexion.html">Se connecter</a> — ou créez-en un nouveau : il remplacera l’ancien.
+            </div>
+
+
+            <!-- PROGRESSION -->
+            <ol class="progress" aria-label="Étapes de l’inscription">
+                <li class="progress-step active">
+                    <span>1</span>
+                    <small>Profil</small>
+                </li>
+                <li class="progress-line" aria-hidden="true"></li>
+                <li class="progress-step">
+                    <span>2</span>
+                    <small>Localisation</small>
+                </li>
+                <li class="progress-line" aria-hidden="true"></li>
+                <li class="progress-step">
+                    <span>3</span>
+                    <small>Terminer</small>
+                </li>
+            </ol>
+
+
+            <!-- ETAPE 1 : PROFIL -->
+            <div class="form-step active-step" id="step1">
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="firstName">Prénom</label>
+                        <input type="text" id="firstName" placeholder="Entrez votre prénom" autocomplete="given-name" maxlength="40" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Nom</label>
+                        <input type="text" id="lastName" placeholder="Entrez votre nom" autocomplete="family-name" maxlength="40" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresse e-mail</label>
+                    <input type="email" id="email" placeholder="exemple@email.com" autocomplete="email" maxlength="80" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <div class="password-field">
+                        <input type="password" id="password" placeholder="8 caractères minimum" autocomplete="new-password" minlength="8" maxlength="72" aria-describedby="passwordHint" required>
+                        <button type="button" class="password-toggle" data-toggle-password="password" aria-pressed="false">Afficher</button>
+                    </div>
+                    <small id="passwordHint" class="field-hint">Au moins 8 caractères. Il n’est jamais enregistré en clair.</small>
+                </div>
+
+                <fieldset class="interest-fieldset">
+                    <legend>Vos domaines <span>Choisissez jusqu’à 3 centres d’intérêt</span></legend>
+                    <div class="interest-grid">
+                        <label><input type="checkbox" name="domains" value="Commerce"><span>🛍️ Commerce</span></label>
+                        <label><input type="checkbox" name="domains" value="Échanges"><span>🔄 Échanges</span></label>
+                        <label><input type="checkbox" name="domains" value="Formation"><span>📚 Formation</span></label>
+                        <label><input type="checkbox" name="domains" value="Immobilier"><span>🏠 Immobilier</span></label>
+                        <label><input type="checkbox" name="domains" value="Restaurants & livraison"><span>🍽️ Restaurants & livraison</span></label>
+                        <label><input type="checkbox" name="domains" value="Services"><span>🧰 Services</span></label>
+                        <label><input type="checkbox" name="domains" value="Événements"><span>🎉 Événements</span></label>
+                        <label><input type="checkbox" name="domains" value="Emploi"><span>💼 Emploi</span></label>
+                        <label><input type="checkbox" name="domains" value="Communauté"><span>🤝 Communauté</span></label>
+                    </div>
+                    <small id="domainCount" class="field-hint">0 / 3 sélectionné</small>
+                    <p id="domainError" class="field-error" role="status"></p>
+                </fieldset>
+
+                <div class="form-group photo-field">
+                    <label for="signupPhoto">Votre photo <span>(facultatif)</span></label>
+                    <div class="photo-choice">
+                        <div class="photo-preview" id="signupPhotoPreview">M</div>
+                        <input id="signupPhoto" type="file" accept="image/*">
+                        <small>Une photo nette de vous, elle sera automatiquement allégée.</small>
+                    </div>
+                    <p id="photoError" class="field-error" role="status"></p>
+                </div>
+
+                <p class="form-alert" id="step1Error" role="alert"></p>
+
+                <button type="button" class="btn primary" id="nextStep1">
+                    Continuer →
+                </button>
+
+            </div>
+
+
+            <!-- ETAPE 2 : LOCALISATION -->
+            <div class="form-step" id="step2">
+
+                <div class="step-title">
+                    <h2>Votre localisation</h2>
+                    <p>Choisissez vous-même votre localisation.</p>
+                </div>
+
+                <div id="signupLocation"></div>
+
+                <p class="location-note">Votre emplacement sert à vous proposer des annonces et services réellement proches de vous.</p>
+
+                <p class="form-alert" id="step2Error" role="alert"></p>
+
+                <div class="button-row">
+                    <button type="button" class="btn secondary" id="backStep1">← Retour</button>
+                    <button type="button" class="btn primary" id="nextStep2">Continuer →</button>
+                </div>
+
+            </div>
+
+
+            <!-- ETAPE 3 : VERIFICATION -->
+            <div class="form-step" id="step3">
+
+                <div class="success-icon" aria-hidden="true">✓</div>
+
+                <h2>Presque terminé !</h2>
+
+                <p class="summary-text">
+                    Vérifiez vos informations avant de créer votre compte.
+                </p>
+
+                <div class="summary-box">
+                    <div><strong>Nom :</strong> <span id="summaryName"></span></div>
+                    <div><strong>E-mail :</strong> <span id="summaryEmail"></span></div>
+                    <div><strong>Vos domaines :</strong> <span id="summaryDomains"></span></div>
+                    <div><strong>Localisation :</strong> <span id="summaryLocation"></span></div>
+                </div>
+
+                <p class="form-alert" id="step3Error" role="alert"></p>
+
+                <div class="button-row">
+                    <button type="button" class="btn secondary" id="backStep2">← Modifier</button>
+                    <button type="button" class="btn primary" id="createAccount">Créer mon compte</button>
+                </div>
+
+            </div>
+
+            <p class="auth-switch">Vous avez déjà un compte ? <a href="connexion.html">Se connecter</a></p>
+
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+    <script src="js/inscription.js"></script>
+
+</body>
+
+</html>

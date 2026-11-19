@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b4db8">
+    <title>Mon compte | Medinati</title>
+    <link rel="icon" href="medinati-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="account-page">
+
+    <!-- EN-TÊTE -->
+    <header class="account-header">
+        <a class="account-brand" href="home.html"><img src="medinati-logo.svg" alt="" class="brand-symbol"><span>Medinati</span></a>
+        <div>
+            <h1>Mon compte</h1>
+            <p>Gérez vos informations personnelles</p>
+        </div>
+        <button type="button" class="settings-btn" id="settingsBtn" aria-label="Aller aux préférences">⚙️</button>
+    </header>
+
+
+    <!-- PROFIL -->
+    <section class="profile-card">
+        <div class="cover"></div>
+        <div class="profile-content">
+            <div class="photo-container">
+                <div class="profile-photo" id="profilePhoto">M</div>
+                <button type="button" class="camera-btn" id="photoBtn" aria-label="Changer ma photo de profil">📷</button>
+                <input type="file" id="photoInput" accept="image/*" hidden>
+            </div>
+            <h2 id="displayName">Mon profil</h2>
+            <p class="username" id="accountUsername"></p>
+            <p class="member"><span id="memberSince">Membre Medinati</span></p>
+            <p class="profile-bio" id="profileBioText" hidden></p>
+            <button type="button" class="edit-btn" id="editProfile">✏️ Modifier mon profil</button>
+        </div>
+    </section>
+
+
+    <!-- ACTIVITÉ -->
+    <section class="account-card">
+        <div class="card-title">
+            <div>
+                <h3>Mon activité</h3>
+                <p>Tout ce que vous avez fait sur Medinati</p>
+            </div>
+            <span aria-hidden="true">✦</span>
+        </div>
+        <div class="activity-grid">
+            <a href="nouvelle.html?vue=miennes"><strong id="countMine">0</strong><span>Mes publications</span></a>
+            <a href="favoris.html"><strong id="countSaved">0</strong><span>Favoris</span></a>
+            <a href="messages.html"><strong id="countMessages">0</strong><span>Demandes de contact</span></a>
+            <a href="notifications.html"><strong id="countNotifications">0</strong><span>Notifications non lues</span></a>
+        </div>
+    </section>
+
+
+    <!-- INFORMATIONS -->
+    <section class="account-card">
+        <div class="card-title">
+            <div>
+                <h3>Informations personnelles</h3>
+                <p>Vos informations de compte</p>
+            </div>
+            <button type="button" class="text-btn" data-open-profile>Modifier</button>
+        </div>
+
+        <div class="info-row">
+            <div class="info-icon" aria-hidden="true">👤</div>
+            <div><small>Nom complet</small><strong id="accountFullName">—</strong></div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-icon" aria-hidden="true">📧</div>
+            <div><small>Adresse e-mail</small><strong id="accountEmail">—</strong></div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-icon" aria-hidden="true">📱</div>
+            <div><small>Téléphone</small><strong id="accountPhone">Non renseigné</strong></div>
+        </div>
+    </section>
+
+
+    <!-- DOMAINES -->
+    <section class="account-card account-domains-card">
+        <div class="card-title">
+            <div><h3>Mes domaines</h3><p>Vos centres d’intérêt sur Medinati (3 maximum)</p></div>
+            <button type="button" class="text-btn" data-open-profile>Modifier</button>
+        </div>
+        <div id="profileDomains" class="profile-domain-list"></div>
+    </section>
+
+
+    <!-- LOCALISATION -->
+    <section class="account-card" id="localisation">
+        <div class="card-title">
+            <div>
+                <h3>📍 Ma localisation</h3>
+                <p>Localisation choisie par vous</p>
+            </div>
+            <button type="button" class="text-btn" id="changeLocation">Modifier</button>
+        </div>
+
+        <div class="location-box">
+            <div class="location-item"><span aria-hidden="true">🌍</span><div><small>Pays</small><strong id="locCountry">—</strong></div></div>
+            <div class="arrow" aria-hidden="true">›</div>
+            <div class="location-item"><span aria-hidden="true">📍</span><div><small>Ville</small><strong id="locCity">—</strong></div></div>
+            <div class="arrow" aria-hidden="true">›</div>
+            <div class="location-item"><span aria-hidden="true">🏘️</span><div><small>Commune</small><strong id="locDistrict">—</strong></div></div>
+            <div class="arrow" aria-hidden="true">›</div>
+            <div class="location-item"><span aria-hidden="true">📌</span><div><small>Quartier</small><strong id="locNeighborhood">—</strong></div></div>
+        </div>
+
+        <p class="location-info">
+            Elle sert à vous montrer les annonces proches de chez vous. Vous pouvez la modifier à tout moment.
+        </p>
+    </section>
+
+
+    <!-- PRÉFÉRENCES -->
+    <section class="account-card" id="preferences">
+        <div class="card-title">
+            <div>
+                <h3>Préférences</h3>
+                <p>Personnalisez votre compte</p>
+            </div>
+            <span aria-hidden="true">✨</span>
+        </div>
+
+        <div class="option-row">
+            <div class="option-left">
+                <span aria-hidden="true">🔔</span>
+                <div>
+                    <strong id="notificationLabel">Notifications</strong>
+                    <small>Être prévenu(e) de votre activité</small>
+                </div>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="notificationSwitch" aria-labelledby="notificationLabel" checked>
+                <span></span>
+            </label>
+        </div>
+
+        <div class="option-row">
+            <div class="option-left">
+                <span aria-hidden="true">🌙</span>
+                <div>
+                    <strong id="darkModeLabel">Mode sombre</strong>
+                    <small>Sur toutes les pages de Medinati</small>
+                </div>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="darkModeSwitch" aria-labelledby="darkModeLabel">
+                <span></span>
+            </label>
+        </div>
+
+        <div class="option-row">
+            <div class="option-left">
+                <span aria-hidden="true">🌐</span>
+                <div>
+                    <strong>Langue</strong>
+                    <small>Français</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SÉCURITÉ -->
+    <section class="account-card">
+        <div class="card-title">
+            <div>
+                <h3>🔐 Sécurité</h3>
+                <p>Protégez votre compte</p>
+            </div>
+        </div>
+
+        <button type="button" class="security-row" id="openPassword">
+            <span aria-hidden="true">🔑</span>
+            <div><strong>Modifier le mot de passe</strong><small>Changez votre mot de passe</small></div>
+            <b aria-hidden="true">›</b>
+        </button>
+
+        <button type="button" class="security-row" id="openPrivacy">
+            <span aria-hidden="true">🛡️</span>
+            <div><strong>Confidentialité</strong><small>Vos données et leur suppression</small></div>
+            <b aria-hidden="true">›</b>
+        </button>
+    </section>
+
+
+    <!-- AIDE -->
+    <section class="account-card">
+        <div class="card-title">
+            <div>
+                <h3>❓ Aide et assistance</h3>
+                <p>Besoin d’aide ?</p>
+            </div>
+        </div>
+
+        <button type="button" class="security-row" id="openHelp">
+            <span aria-hidden="true">💬</span>
+            <div><strong>Centre d’aide</strong><small>Les réponses aux questions fréquentes</small></div>
+            <b aria-hidden="true">›</b>
+        </button>
+    </section>
+
+
+    <!-- DÉCONNEXION -->
+    <button type="button" class="logout-btn" id="logoutBtn">🚪 Se déconnecter</button>
+
+    <p class="version">Medinati • Version 2.0</p>
+
+</main>
+
+
+<!-- FENÊTRE : PROFIL -->
+<div class="modal hidden" id="profileModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
+        <button type="button" class="close" data-close-modal aria-label="Fermer">×</button>
+        <h2 id="profileModalTitle">Modifier mon profil</h2>
+        <p>Ces informations apparaissent sur votre profil et vos annonces.</p>
+
+        <div class="form-grid-2">
+            <div>
+                <label for="profileFirstName">Prénom</label>
+                <input type="text" id="profileFirstName" autocomplete="given-name" maxlength="40">
+            </div>
+            <div>
+                <label for="profileLastName">Nom</label>
+                <input type="text" id="profileLastName" autocomplete="family-name" maxlength="40">
+            </div>
+        </div>
+
+        <label for="profilePhone">Téléphone <span class="label-hint">(facultatif)</span></label>
+        <input type="tel" id="profilePhone" autocomplete="tel" maxlength="20" placeholder="+212 6 00 00 00 00">
+
+        <label for="profileBio">Présentation <span class="label-hint">(facultatif)</span></label>
+        <textarea id="profileBio" maxlength="300" placeholder="Parlez un peu de vous…"></textarea>
+
+        <fieldset class="modal-fieldset">
+            <legend>Mes domaines <span class="label-hint">(3 maximum)</span></legend>
+            <div class="modal-domains" id="profileDomainChoices"></div>
+        </fieldset>
+
+        <button type="button" class="link-danger" id="removePhoto" hidden>Retirer ma photo de profil</button>
+
+        <p class="form-alert" id="profileError" role="alert"></p>
+
+        <button type="button" class="save-btn" id="saveProfile">Enregistrer</button>
+    </div>
+</div>
+
+
+<!-- FENÊTRE : LOCALISATION -->
+<div class="modal hidden" id="locationModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="locationModalTitle">
+        <button type="button" class="close" data-close-modal aria-label="Fermer">×</button>
+        <h2 id="locationModalTitle">📍 Modifier ma localisation</h2>
+        <p>Choisissez vous-même votre localisation.</p>
+        <div id="accountLocation"></div>
+        <p class="form-alert" id="locationError" role="alert"></p>
+        <button type="button" class="save-btn" id="saveLocation">Enregistrer</button>
+    </div>
+</div>
+
+
+<!-- FENÊTRE : MOT DE PASSE -->
+<div class="modal hidden" id="passwordModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="passwordModalTitle">
+        <button type="button" class="close" data-close-modal aria-label="Fermer">×</button>
+        <h2 id="passwordModalTitle">🔑 Modifier le mot de passe</h2>
+        <p>Saisissez votre mot de passe actuel, puis le nouveau.</p>
+        <form id="passwordForm" novalidate>
+            <label for="currentPassword">Mot de passe actuel</label>
+            <input type="password" id="currentPassword" autocomplete="current-password">
+            <label for="newPassword">Nouveau mot de passe</label>
+            <div class="password-field">
+                <input type="password" id="newPassword" autocomplete="new-password" minlength="8" maxlength="72" placeholder="8 caractères minimum">
+                <button type="button" class="password-toggle" data-toggle-password="newPassword" aria-pressed="false">Afficher</button>
+            </div>
+            <label for="confirmPassword">Confirmer le nouveau mot de passe</label>
+            <input type="password" id="confirmPassword" autocomplete="new-password" maxlength="72">
+            <p class="form-alert" id="passwordError" role="alert"></p>
+            <button type="submit" class="save-btn">Changer le mot de passe</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- FENÊTRE : CONFIDENTIALITÉ -->
+<div class="modal hidden" id="privacyModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
+        <button type="button" class="close" data-close-modal aria-label="Fermer">×</button>
+        <h2 id="privacyModalTitle">🛡️ Confidentialité</h2>
+        <p>Dans cette version, Medinati fonctionne sans serveur : vos informations restent uniquement dans le navigateur de cet appareil. Personne d’autre ne les reçoit.</p>
+        <ul class="privacy-list">
+            <li>Votre profil, votre localisation et votre photo</li>
+            <li>Vos annonces, favoris et demandes de contact</li>
+            <li>Vos notifications et recherches récentes</li>
+        </ul>
+        <p>Votre mot de passe n’est jamais enregistré en clair : seule une empreinte sécurisée en est gardée.</p>
+        <button type="button" class="danger-btn" id="eraseData">Effacer toutes mes données de cet appareil</button>
+    </div>
+</div>
+
+
+<!-- FENÊTRE : AIDE -->
+<div class="modal hidden" id="helpModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="helpModalTitle">
+        <button type="button" class="close" data-close-modal aria-label="Fermer">×</button>
+        <h2 id="helpModalTitle">💬 Centre d’aide</h2>
+        <p>Les réponses aux questions les plus fréquentes.</p>
+        <div class="faq">
+            <details open>
+                <summary>Comment publier une annonce ?</summary>
+                <p>Touchez « ＋ Publier » en bas de l’écran, choisissez le type d’annonce, puis remplissez le formulaire. Vous pouvez ajouter une photo.</p>
+            </details>
+            <details>
+                <summary>Comment contacter un membre ?</summary>
+                <p>Ouvrez son annonce et touchez « Contacter » (ou « Postuler », « Commander »…). Votre demande est gardée dans « Mes demandes ».</p>
+            </details>
+            <details>
+                <summary>Comment retrouver une annonce plus tard ?</summary>
+                <p>Touchez « ♡ Enregistrer » : l’annonce rejoint vos favoris, accessibles depuis « Mon activité ».</p>
+            </details>
+            <details>
+                <summary>Comment supprimer une de mes annonces ?</summary>
+                <p>Allez dans « Mes publications », ouvrez l’annonce puis touchez « Supprimer l’annonce ».</p>
+            </details>
+            <details>
+                <summary>J’ai oublié mon mot de passe</summary>
+                <p>Le compte est enregistré sur cet appareil uniquement : vous pouvez recréer un compte depuis la page d’inscription. Il remplacera l’ancien.</p>
+            </details>
+        </div>
+    </div>
+</div>
+
+
+<!-- MENU DU BAS -->
+<nav class="bottom-nav" aria-label="Navigation principale">
+    <a href="home.html" class="nav-item"><span aria-hidden="true">🏠</span><small>Accueil</small></a>
+    <a href="recherche.html" class="nav-item"><span aria-hidden="true">🔍</span><small>Recherche</small></a>
+    <a href="nouvelle.html?publier=1" class="nav-item nav-publish"><span aria-hidden="true">＋</span><small>Publier</small></a>
+    <a href="nouvelle.html" class="nav-item"><span aria-hidden="true">📰</span><small>Publications</small></a>
+    <a href="account.html" class="nav-item active" aria-current="page"><span aria-hidden="true">👤</span><small>Compte</small></a>
+</nav>
+
+<script src="app.js"></script>
+<script src="js/compte.js"></script>
+
+</body>
+</html>

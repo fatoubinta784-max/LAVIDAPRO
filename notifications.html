@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b4db8">
+  <title>Notifications | Medinati</title>
+  <link rel="icon" href="medinati-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="app-page">
+  <header class="app-topbar">
+    <a class="app-brand" href="home.html"><img src="medinati-logo.svg" alt="" class="brand-symbol brand-symbol-small"><strong>Medinati</strong></a>
+    <nav aria-label="Navigation principale">
+      <a href="home.html">Accueil</a>
+      <a href="recherche.html">Explorer</a>
+      <a href="nouvelle.html">Publications</a>
+      <a href="account.html">Mon compte</a>
+    </nav>
+  </header>
+
+  <main class="notifications-wrap">
+    <a href="home.html" class="detail-back">← Retour à l’accueil</a>
+    <div class="notifications-heading">
+      <div>
+        <p class="auth-kicker">VOTRE ESPACE</p>
+        <h1>Notifications</h1>
+        <p>Les nouvelles de votre communauté locale.</p>
+      </div>
+      <div class="notifications-tools">
+        <button type="button" id="markAllRead" class="detail-save">Tout marquer comme lu</button>
+        <button type="button" id="clearAll" class="detail-save">Tout effacer</button>
+      </div>
+    </div>
+    <p class="form-notice" id="notificationsOff" hidden>Les notifications sont désactivées. <a href="account.html#preferences">Les réactiver dans mon compte</a></p>
+    <div id="notificationList" class="notification-list" aria-live="polite"></div>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="js/notifications.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b4db8">
+    <meta name="description" content="Medinati rapproche les habitants des commerces, services et opportunités de leur quartier.">
+    <title>Medinati — La vie locale, en mieux</title>
+
+    <link rel="icon" href="medinati-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="home-page">
+
+        <!-- EN-TÊTE -->
+        <header class="topbar">
+
+            <a class="brand" href="home.html">
+                <img src="medinati-logo.svg" alt="" class="brand-symbol">
+                <div>
+                    <h2>Medinati</h2>
+                    <p id="currentLocation">📍 Choisir ma localisation</p>
+                </div>
+            </a>
+
+            <nav class="home-actions" aria-label="Raccourcis">
+                <a href="recherche.html" class="top-link">Explorer</a>
+                <a href="nouvelle.html?publier=1" class="top-link">Publier</a>
+                <a href="notifications.html" class="icon-link" aria-label="Notifications">
+                    <span aria-hidden="true">🔔</span>
+                    <span class="nav-badge" data-badge="notifications" hidden></span>
+                </a>
+                <a href="account.html" class="account-link" data-when-logged-in hidden>Mon compte <span aria-hidden="true">↗</span></a>
+                <a href="connexion.html" class="account-link" data-when-logged-out>Se connecter <span aria-hidden="true">↗</span></a>
+            </nav>
+
+        </header>
+
+
+        <!-- RECHERCHE -->
+        <section class="search-section" role="search">
+            <form class="search-box" id="homeSearch" action="recherche.html">
+                <span aria-hidden="true">⌕</span>
+                <input
+                    type="search"
+                    name="q"
+                    id="globalSearch"
+                    placeholder="Un service, un emploi, un bon plan près de chez vous…"
+                    aria-label="Rechercher une annonce ou un service"
+                    enterkeyhint="search"
+                >
+                <button type="submit" id="searchAction">Rechercher <span aria-hidden="true">→</span></button>
+            </form>
+        </section>
+
+
+        <!-- SALUTATION -->
+        <section class="welcome">
+
+            <div class="hero-copy">
+                <span class="welcome-small"><span class="live-dot"></span> LE MEILLEUR DE VOTRE QUARTIER</span>
+
+                <h1 id="welcomeName">Bonjour, bienvenue sur Medinati</h1>
+
+                <p class="welcome-description">
+                    La plateforme locale qui rapproche les habitants, les commerces et les bonnes opportunités.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="hero-primary" href="recherche.html">Découvrir autour de moi <span aria-hidden="true">→</span></a>
+                    <a class="hero-secondary" href="nouvelle.html?publier=1" data-when-logged-in hidden>＋ Publier gratuitement</a>
+                    <a class="hero-secondary" href="inscription.html" data-when-logged-out>Créer mon compte gratuit</a>
+                </div>
+
+                <div class="hero-proof"><span aria-hidden="true">✦</span> Une communauté locale, des opportunités concrètes, au même endroit.</div>
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+                <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+                <div class="art-center"><img src="medinati-logo.svg" alt=""><strong>medinati</strong><small>près de vous</small></div>
+                <div class="art-chip chip-one">✦ Bons plans</div><div class="art-chip chip-two">⌂ Votre quartier</div><div class="art-chip chip-three">↗ Opportunités</div>
+            </div>
+
+        </section>
+
+        <section class="trust-strip" aria-label="Les avantages de Medinati">
+            <div><strong>Tout près</strong><span>Des solutions dans votre ville</span></div>
+            <div><strong>Tout-en-un</strong><span>Services, emploi, commerce et sorties</span></div>
+            <div><strong>Pour tous</strong><span>Une communauté qui se soutient</span></div>
+        </section>
+
+
+        <!-- CATEGORIES -->
+        <section class="categories">
+
+            <div class="section-title">
+                <div><p class="section-kicker">TROUVEZ VOTRE BONHEUR</p><h2>Explorez par univers</h2></div>
+                <a href="recherche.html">Voir tout</a>
+            </div>
+
+            <div class="category-grid">
+                <a href="recherche.html?categorie=marketplace" class="category-card"><div class="category-icon" aria-hidden="true">🛍️</div><strong>Marketplace</strong><small>Acheter & vendre</small></a>
+                <a href="recherche.html?categorie=emploi" class="category-card"><div class="category-icon" aria-hidden="true">💼</div><strong>Emploi</strong><small>Les offres près de vous</small></a>
+                <a href="recherche.html?categorie=services" class="category-card"><div class="category-icon" aria-hidden="true">🔧</div><strong>Services</strong><small>Les pros du quartier</small></a>
+                <a href="recherche.html?categorie=immobilier" class="category-card"><div class="category-icon" aria-hidden="true">🏠</div><strong>Immobilier</strong><small>Votre prochain chez-vous</small></a>
+                <a href="recherche.html?categorie=restaurant" class="category-card"><div class="category-icon" aria-hidden="true">🍔</div><strong>Restaurants</strong><small>À savourer tout près</small></a>
+                <a href="recherche.html?categorie=formation" class="category-card"><div class="category-icon" aria-hidden="true">📚</div><strong>Formation</strong><small>Apprendre & progresser</small></a>
+                <a href="recherche.html?categorie=livraison" class="category-card"><div class="category-icon" aria-hidden="true">🚚</div><strong>Livraison</strong><small>À votre porte</small></a>
+                <a href="recherche.html?categorie=evenement" class="category-card"><div class="category-icon" aria-hidden="true">🎉</div><strong>Événements</strong><small>Ce qui se passe ici</small></a>
+                <a href="recherche.html?categorie=communaute" class="category-card"><div class="category-icon" aria-hidden="true">🤝</div><strong>Communauté</strong><small>Entraide locale</small></a>
+            </div>
+
+        </section>
+
+
+        <!-- PUBLICATIONS RECENTES -->
+        <section class="recent-section">
+
+            <div class="section-title">
+                <div><p class="section-kicker">LE QUARTIER BOUGE</p><h2>Les dernières annonces</h2></div>
+                <a href="nouvelle.html">Voir tout</a>
+            </div>
+
+            <div id="publicationsList"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- MENU DU BAS -->
+    <nav class="bottom-nav" aria-label="Navigation principale">
+        <a href="home.html" class="nav-item active" aria-current="page"><span aria-hidden="true">🏠</span><small>Accueil</small></a>
+        <a href="recherche.html" class="nav-item"><span aria-hidden="true">🔍</span><small>Recherche</small></a>
+        <a href="nouvelle.html?publier=1" class="nav-item nav-publish"><span aria-hidden="true">＋</span><small>Publier</small></a>
+        <a href="nouvelle.html" class="nav-item"><span aria-hidden="true">📰</span><small>Publications</small></a>
+        <a href="account.html" class="nav-item"><span aria-hidden="true">👤</span><small>Compte</small></a>
+    </nav>
+
+    <script src="app.js"></script>
+    <script src="js/accueil.js"></script>
+
+</body>
+
+</html>

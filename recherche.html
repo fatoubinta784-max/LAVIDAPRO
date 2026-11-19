@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b4db8">
+    <meta name="description" content="Trouvez un service, un emploi, un logement ou un bon plan près de chez vous sur Medinati.">
+    <title>Recherche | Medinati</title>
+
+    <link rel="icon" href="medinati-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="search-page">
+
+        <!-- EN-TÊTE -->
+        <header class="search-header">
+            <a href="home.html" class="back-button" aria-label="Retour à l’accueil">←</a>
+            <div>
+                <h1>Recherche</h1>
+                <p id="searchLocation">📍 Votre localisation</p>
+            </div>
+        </header>
+
+
+        <!-- BARRE DE RECHERCHE -->
+        <section class="search-section" role="search">
+            <div class="search-box">
+                <span aria-hidden="true">🔍</span>
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Un service, un emploi, un logement…"
+                    aria-label="Rechercher sur Medinati"
+                    autocomplete="off"
+                    enterkeyhint="search"
+                >
+                <button type="button" id="clearSearch" class="clear-button" aria-label="Effacer la recherche" hidden>×</button>
+            </div>
+        </section>
+
+
+        <!-- CATEGORIES -->
+        <section class="filter-section" aria-labelledby="filtersTitle">
+            <h2 id="filtersTitle">Catégories</h2>
+            <div class="filter-list">
+                <button type="button" class="filter active" data-category="all" aria-pressed="true">Tout</button>
+                <button type="button" class="filter" data-category="marketplace" aria-pressed="false">🛍️ Marketplace</button>
+                <button type="button" class="filter" data-category="emploi" aria-pressed="false">💼 Emploi</button>
+                <button type="button" class="filter" data-category="services" aria-pressed="false">🔧 Services</button>
+                <button type="button" class="filter" data-category="immobilier" aria-pressed="false">🏠 Immobilier</button>
+                <button type="button" class="filter" data-category="restaurant" aria-pressed="false">🍔 Restaurants</button>
+                <button type="button" class="filter" data-category="formation" aria-pressed="false">📚 Formation</button>
+                <button type="button" class="filter" data-category="livraison" aria-pressed="false">🚚 Livraison</button>
+                <button type="button" class="filter" data-category="evenement" aria-pressed="false">🎉 Événements</button>
+                <button type="button" class="filter" data-category="communaute" aria-pressed="false">🤝 Communauté</button>
+            </div>
+        </section>
+
+
+        <!-- RECHERCHES RECENTES -->
+        <section class="recent-searches" id="recentSearchesSection" hidden>
+            <div class="section-header">
+                <h2>Recherches récentes</h2>
+                <button type="button" id="clearHistory">Effacer</button>
+            </div>
+            <div id="recentSearches" class="recent-list"></div>
+        </section>
+
+
+        <!-- RESULTATS -->
+        <section class="results-section" aria-live="polite">
+            <div class="section-header">
+                <h2 id="resultsTitle">Découvrir</h2>
+                <span id="resultsCount">0 résultat</span>
+            </div>
+
+            <div id="resultsList" class="results-list"></div>
+
+            <div id="emptyState" class="empty-state" hidden>
+                <div aria-hidden="true">🔎</div>
+                <h3>Aucun résultat</h3>
+                <p>Essayez un autre mot ou une autre catégorie… ou publiez vous-même ce que vous cherchez.</p>
+                <a class="detail-contact" href="nouvelle.html?publier=1">＋ Publier une annonce</a>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- MENU BAS -->
+    <nav class="bottom-nav" aria-label="Navigation principale">
+        <a href="home.html" class="nav-item"><span aria-hidden="true">🏠</span><small>Accueil</small></a>
+        <a href="recherche.html" class="nav-item active" aria-current="page"><span aria-hidden="true">🔍</span><small>Recherche</small></a>
+        <a href="nouvelle.html?publier=1" class="nav-item nav-publish"><span aria-hidden="true">＋</span><small>Publier</small></a>
+        <a href="nouvelle.html" class="nav-item"><span aria-hidden="true">📰</span><small>Publications</small></a>
+        <a href="account.html" class="nav-item"><span aria-hidden="true">👤</span><small>Compte</small></a>
+    </nav>
+
+    <script src="app.js"></script>
+    <script src="js/recherche.js"></script>
+
+</body>
+
+</html>
